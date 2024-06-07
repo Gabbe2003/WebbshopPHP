@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capture data from the form
     $name = $_POST['name'];
-    $description = $_POST['description'] ?? ''; // Null, if the value are not provided.
+    $description = $_POST['description'] ?? 'No description is availble'; 
     $price = floatval($_POST['price']);
     $imageUrl = $_POST['imageUrl'] ?? '';
 
@@ -30,13 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ],
     ]);
 
-    // Execute cURL session
     $response = curl_exec($curl);
     $err = curl_error($curl);
 
     curl_close($curl);
 
-    // Check for errors and handle the response
     if ($err) {
         echo "cURL Error #:" . $err;
     } else {
@@ -46,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-<!-- Create New product -->
 <div class="container mt-5">
     <h2>Create New Product</h2>
     <form action="index.php" method="post" class="mt-3">

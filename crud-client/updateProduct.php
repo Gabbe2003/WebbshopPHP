@@ -41,7 +41,7 @@ if (isset($_GET['productId'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = [
         'name' => $_POST['name'],
-        'description' => $_POST['description'] ?? 'No description provided', // Default description if missing
+        'description' => $_POST['description'] ?? 'No description provided',
         'price' => floatval($_POST['price']),
         'imageUrl' => $_POST['imageUrl']
     ];

@@ -1,12 +1,11 @@
 <?php
-$productId = $_GET['productId'] ?? ''; // Retrieve the product ID from the GET request
-$format = $_GET['format'] ?? 'xml';  // Default to XML if no format is specified
+$productId = $_GET['productId'] ?? '';
+$format = $_GET['format'] ?? 'xml';  
 
 if (empty($productId)) {
     die('Product ID is required.');
 }
 
-// Fetch the product data
 $url = "http://localhost:9000/getOneProduct/" . $productId;
 
 $curl = curl_init();
@@ -34,15 +33,14 @@ if ($err) {
     }
 }
 
-// Decide export format and prepare download
 if ($format == 'csv') {
     header('Content-Type: text/csv');
     header('Content-Disposition: attachment; filename="product_' . $productId . '.csv"');
-    echo generate_csv_from_products([$product]); // Note: Function expects an array
+    echo generate_csv_from_products([$product]); 
 } else {
     header('Content-Type: application/xml');
     header('Content-Disposition: attachment; filename="product_' . $productId . '.xml"');
-    echo generate_xml_from_products([$product]); // Note: Function expects an array
+    echo generate_xml_from_products([$product]); 
 }
 
 function generate_xml_from_products($products) {

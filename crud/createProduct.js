@@ -3,12 +3,10 @@ const Product = require('../models/product');
 const createProduct = async (req, res) => {
     const { name, description, price, imageUrl } = req.body;
 
-    // Validate required fields
     if (!name || !price) {
         return res.status(400).json({ message: 'Required fields are missing. Please provide name and price' });
     }
 
-    // Additional validations
     if (typeof name !== 'string') {
         return res.status(400).json({ message: 'Invalid name. Name must be a string.' });
     }
