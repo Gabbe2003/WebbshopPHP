@@ -23,7 +23,7 @@
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => ["cache-control: no-cache"],
         ]);
-
+// test
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
