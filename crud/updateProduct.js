@@ -11,7 +11,6 @@ const updateProduct = async (req, res) => {
     console.log('Received data:', req.body);
     console.log('Product ID:', productId);
 
-    // Prepare update object
     let updateData = {};
     if (name !== undefined) {
         if (name.trim() === '') {
