@@ -35,5 +35,5 @@ const createProduct = async (req, res) => {
         res.status(500).json({ message: 'Failed to create the product due to server error.', err });
     }
 };
-
+//Done
 module.exports = { createProduct };
